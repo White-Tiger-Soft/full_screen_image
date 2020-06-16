@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 
 class FullScreenWidget extends StatelessWidget {
   FullScreenWidget(
-      {@required this.child,
+      {@required this.child, 
+      this.fullScreenChild,
       this.backgroundColor = Colors.black,
       this.backgroundIsTransparent = true,
       this.disposeLevel});
 
-  final Widget child;
+  final Widget child;  
+  final Widget fullScreenChild;
   final Color backgroundColor;
   final bool backgroundIsTransparent;
   final DisposeLevel disposeLevel;
@@ -27,7 +29,7 @@ class FullScreenWidget extends StatelessWidget {
                     : backgroundColor,
                 pageBuilder: (BuildContext context, _, __) {
                   return FullScreenPage(
-                    child: child,
+                    child: fullScreenChild ?? child,
                     backgroundColor: backgroundColor,
                     backgroundIsTransparent: backgroundIsTransparent,
                     disposeLevel: disposeLevel,
