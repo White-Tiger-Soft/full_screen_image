@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class FullScreenWidget extends StatelessWidget {
   FullScreenWidget(
       {@required this.child, 
-      this.fullScreenChild,
+      this.fullScreenChildBuilder,
       this.backgroundColor = Colors.black,
       this.backgroundIsTransparent = true,
       this.disposeLevel});
