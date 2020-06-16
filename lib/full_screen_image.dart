@@ -11,7 +11,7 @@ class FullScreenWidget extends StatelessWidget {
       this.disposeLevel});
 
   final Widget child;  
-  final Widget fullScreenChild;
+  final Widget Function(BuildContext) fullScreenChildBuilder;
   final Color backgroundColor;
   final bool backgroundIsTransparent;
   final DisposeLevel disposeLevel;
@@ -29,7 +29,7 @@ class FullScreenWidget extends StatelessWidget {
                     : backgroundColor,
                 pageBuilder: (BuildContext context, _, __) {
                   return FullScreenPage(
-                    child: fullScreenChild ?? child,
+                    child: fullScreenChild?.call(context) ?? child,
                     backgroundColor: backgroundColor,
                     backgroundIsTransparent: backgroundIsTransparent,
                     disposeLevel: disposeLevel,
